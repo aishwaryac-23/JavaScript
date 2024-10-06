@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Mobile Number Validation</title>
+    </head>
+    <body>
+        <form name="validate" method="post" action="#">
+            <table>
+                <tr>
+                    <td>Mobile Number : </td>
+                    <td><input type="text" name="txtmob" required oninput="this.setCustomValidity('')"
+                    oninvalid="this.setCustomValidity('please enter proper mobile number')"
+                    pattern="[6-9]{1}[0-9]{9}"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="btnsub"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

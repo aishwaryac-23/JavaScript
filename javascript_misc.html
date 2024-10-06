@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Java Miscellinious</title>
+    </head>
+    <body>
+        <script>
+            function display(stname,strank,callback){
+                document.write("<h1>Student Name : "+stname+"</h1>");
+                document.write("<h1>Student Rank : "+strank+"</h1>");
+            }
+            function display1(){
+                document.write("<h1>Student Mark : 90.85"+"</h1>");
+            }
+            display("abc",1,display1());
+
+            setTimeout(display1,5000)
+        </script>
+    </body>
+</html>

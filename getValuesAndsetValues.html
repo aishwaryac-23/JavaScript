@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Document Object Model</title>
+        <script>
+            function formValidation()
+            {
+                var username = document.getElementById("txtusr").value;
+                alert(username);
+                var password = document.getElementById("txtpass").value;
+                return true;
+                var mob=document.getElementById("txtmob").value;
+
+                if((username=="")||(username==null))
+                {
+                    document.getElementById("usrError").innerHTML="Please enter User Name";
+                    return false;
+                }
+                else if((password=="")||((password.length>6)&&(password.length<32)))
+                {
+                    document.getElementById("txtpass").value="";
+                    document.getElementById("passError").innerHTML="Please enter the password";
+                    return false;
+                }
+            }
+          /*  function togglePassword(){
+                var password = document.getElementById("txtpass");
+                var passtype=document.getElementById("txtpass").getAttribute("");
+            }*/
+        </script>
+    </head>
+    <body>
+        <!--Form Validation-->
+
+        <form name="register" method="post" action="#" onsubmit="return formValidation()">
+        <table>
+            <tr>
+                <td>User Name<font color="red">*</font></td>
+                <td><input type="text" name="txtusr" required>
+                <span id="usrError" style="font:red;"></span></td>
+            </tr>
+            <tr>
+                <td>Password<font color="red">*</font></td>
+                <td><input type="password" name="txtpass" required>
+                <span id="passError" style="color:red;"></span>
+            </tr>
+            <tr>
+                <td>Mobile Number : </td>
+                <td><input type="text" name="txtmob" required oninput="this.setCustomValidity('')"
+                oninvalid="this.setCustomValidity('please enter proper mobile number')"
+                pattern="[6-9]{1}[0-9]{9}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="btnsub"></td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>

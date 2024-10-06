@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Forms</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.min.js"></script>
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .error {
+            color: red;
+            font-size: 0.875em;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+    <script>
+        function formValidation() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var country = document.getElementById("country").value;
+
+            var isValid = true;
+
+            if (username == "" || username == null) {
+                document.getElementById("usrError").innerHTML = "Please enter User Name";
+                isValid = false;
+            } else {
+                document.getElementById("usrError").innerHTML = "";
+            }
+
+            if (password == "" || password.length < 6 || password.length > 32) {
+                document.getElementById("passError").innerHTML = "Please enter a valid password (6-32 characters)";
+                isValid = false;
+            } else {
+                document.getElementById("passError").innerHTML = "";
+            }
+
+            if (!gender) {
+                document.getElementById("genderError").innerHTML = "Please select your gender";
+                isValid = false;
+            } else {
+                document.getElementById("genderError").innerHTML = "";
+            }
+
+            if (country == "") {
+                document.getElementById("countryError").innerHTML = "Please select your country";
+                isValid = false;
+            } else {
+                document.getElementById("countryError").innerHTML = "";
+            }
+
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form name="register_form" method="post" action="#" class="forms" onsubmit="return formValidation()">
+            <div class="form-group">
+                <label for="username" class="form-label">User Name</label>
+                <input type="text" id="username" name="username" class="form-control">
+                <div id="usrError" class="error"></div>
+            </div><br>
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control">
+                <div id="passError" class="error"></div>
+            </div><br>
+            <div class="form-group">
+                <label for="gender" class="form-label">Gender</label><br>
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="male" name="gender" value="male" class="form-check-input">
+                    <label for="male" class="form-check-label">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" id="female" name="gender" value="female" class="form-check-input">
+                    <label for="female" class="form-check-label">Female</label>
+                </div>
+                <div id="genderError" class="error"></div>
+            </div><br>
+            <div class="form-group">
+                <label for="country" class="form-label">Country</label>
+                <select id="country" name="cntry" class="form-control">
+                    <option value="">Select your country</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="Australia">Australia</option>
+                </select>
+                <div id="countryError" class="error"></div>
+            </div><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

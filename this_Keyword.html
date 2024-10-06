@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Java Script This Keyword</title>
+    </head>
+    <body>
+        <script>
+            var emp=function showEmployee(emp_id,emp_name,salary)
+            {
+                this.emp_id=emp_id;
+                this.emp_name=emp_name;
+                this.salary=salary;
+                this.category=function getcategory()
+                {
+                    return "Marketing";
+                }
+            }
+            showEmployee("emp-1","abc",3500.0);
+
+            document.write("<h1> Employee id : "+this.emp_id+"</h1>");
+            document.write("<h1> Employee name : "+this.emp_name+"</h1>");
+            document.write("<h1> Employee salary : "+this.salary+"</h1>");
+            document.write("<h1> Category : "+this.category()+"</h1>");
+
+        </script>
+    </body>
+</html>
